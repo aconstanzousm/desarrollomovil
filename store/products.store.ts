@@ -1,37 +1,42 @@
 export const products = [
   {
     id: '1',
-    title: 'Auriculares Inalámbricos',
+    title: 'Playa Barbados',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Barbados_beach.jpg',
     description:
-      'Experimenta una calidad de sonido premium con estos auriculares inalámbricos. Diseñados para la comodidad y el uso prolongado, son perfectos para amantes de la música y profesionales por igual.',
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     price: 99.99,
   },
   {
     id: '2',
-    title: 'Reloj Inteligente',
+    image: 'https://www.df.cl/noticias/site/artic/20260906/imag/foto_0000002420260906182754/WhatsApp_Image_2026-09-07_at_14.51.48.jpeg',
+    title: 'Resort de Montaña - Quemados de Chillán',
     description:
-      'Mantente conectado y sigue tu estado físico con este elegante y moderno reloj inteligente. Equipado con funciones como monitoreo de frecuencia cardíaca, GPS y más.',
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     price: 149.99,
   },
   {
     id: '3',
-    title: 'Altavoz Bluetooth',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/3e/36/95/baga-sea-beach.jpg?w=500&h=500&s=1',
+    title: 'Baga Sea Beach',
     description:
-      'Portátil y potente, este altavoz Bluetooth ofrece un sonido claro y nítido donde quiera que vayas. Ideal para fiestas, actividades al aire libre y más.',
+      'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     price: 59.99,
   },
   {
     id: '4',
-    title: 'Ratón para Gaming',
+    image: 'https://media.pauta.cl/2023/06/imagen_principal-48861.jpg',
+    title: 'Iquique',
     description:
-      'Mejora tu experiencia de juego con este ratón para gaming de alta precisión. Diseñado ergonómicamente y construido para durar, es imprescindible para cualquier jugador.',
+      'Que ta lejos iquique',
     price: 39.99,
   },
   {
     id: '5',
-    title: 'Monitor 4K',
+    image: 'https://seismilesdeatacama.cl/wp-content/uploads/2025/03/bahia1.png',
+    title: 'Atacama',
     description:
-      'Disfruta de impresionantes visuales con este monitor 4K. Perfecto para juegos, trabajo o entretenimiento, ofrece colores vibrantes y detalles nítidos.',
+      'Aquí hay peruanos y bolivianos. Pe causa y la gente de la zona. No hay nada que hacer aquí. Solo hay desierto y piedras. No hay playa ni mar. No hay nada que hacer aquí. Solo hay desierto y piedras. No hay playa ni mar.',
     price: 299.99,
   },
 ];
