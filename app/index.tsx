@@ -8,6 +8,7 @@ import className from 'twrnc';
 interface Tarea {
   key: string;
   value: string;
+  descripcion?:string;
   fecha: string;
 }
 //donde se guarda
@@ -17,6 +18,7 @@ const Index = () => {
   const router = useRouter();
 //constantes de tarea
   const [tarea, setTarea] = useState('');
+  const [descripcion, setDescripcion] = useState('');
   const [tareas, setTareas] = useState<Tarea[]>([]);
   const [editBoton, setEditBoton] = useState<string | null>(null);
   //constantes de fecha
@@ -85,15 +87,16 @@ const Index = () => {
 
       if (editBoton !== null) {
         actualizadas = tareas.map(item =>
-          item.key === editBoton ? { key: item.key, value: tarea, fecha: fechaString } : item
+          item.key === editBoton ? { key: item.key, value: tarea, descripcion, fecha: fechaString } : item
         );
         setEditBoton(null);
       } else {
-        actualizadas = [...tareas, { key: Date.now().toString(), value: tarea, fecha: fechaString }];
+        actualizadas = [...tareas, { key: Date.now().toString(), value: tarea, descripcion, fecha: fechaString }];
       }
 
       guardarTareas(actualizadas);
       setTarea('');
+      setDescripcion('');
       setFechaSeleccionada(new Date());
     }
   };
@@ -105,6 +108,7 @@ const Index = () => {
 
   const editarTarea = (item: Tarea) => {
     setTarea(item.value);
+    setDescripcion(item.descripcion || '');
     setEditBoton(item.key);
     if (item.fecha) {
       const [year, month, day] = item.fecha.split('-').map(Number);
@@ -124,6 +128,14 @@ const Index = () => {
           onChangeText={setTarea}
           placeholder="Escribe una tarea..."
           style={className`bg-gray-100 rounded-lg p-3 text-base text-gray-800`}
+        />
+        <TextInput
+          value={descripcion}
+          onChangeText={setDescripcion}
+          placeholder="Descripción u observaciones..."
+          multiline
+          numberOfLines={2}
+          style={className`bg-gray-100 rounded-lg p-3 text-sm text-gray-700 min-h-12`}
         />
 
         <View style={className`flex-row gap-2 items-center`}>
@@ -189,7 +201,11 @@ const Index = () => {
                 {item.fecha}
               </Text>
             </View>
-
+          {item.descripcion ? (
+              <Text style={className`text-sm text-gray-600 bg-gray-50 p-2 rounded-lg`}>
+                {item.descripcion}
+              </Text>
+            ) : null}
             <View style={className`flex-row justify-center items-center gap-2 mt-1`}>
               <Pressable
                 onPress={() => editarTarea(item)}

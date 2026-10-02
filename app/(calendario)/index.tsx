@@ -81,6 +81,11 @@ export default function CalendarioScreen() {
         renderItem={({ item }) => (
           <View style={className`bg-white p-3 rounded-lg my-1 shadow-sm`}>
             <Text style={className`text-base`}>{item.value}</Text>
+            {item.descripcion && (
+              <Text style={className`text-sm text-gray-600 bg-gray-50 p-2 rounded-lg`}>
+                {item.descripcion}
+              </Text>
+            )}
           </View>
         )}
       />
