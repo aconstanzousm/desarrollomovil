@@ -2,10 +2,10 @@ export const sesion = { nombre: '' };
 
 //definicion de interfaz tarea
 export interface Tarea {
-  key: string;
-  value: string;
+  id: string;
+  titulo: string;
   descripcion?: string;
-  fecha: string; // "YYYY-MM-DD"
+  fecha: string; // "AAAA-MM-DD"
 }
 //donde se guarda
-export const STORAGE_KEY = "@mis_tareas_app";
+export const CLAVE_ALMACENAMIENTO = "@mis_tareas_app";

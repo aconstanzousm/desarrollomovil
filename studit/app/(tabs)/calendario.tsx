@@ -4,7 +4,7 @@ import React, { useCallback, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { Calendar } from "react-native-calendars";
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { STORAGE_KEY, Tarea } from '../../datos';
+import { CLAVE_ALMACENAMIENTO, Tarea } from '../../datos';
 
 export default function CalendarioScreen() {
   const [tareas, setTareas] = useState<Tarea[]>([]);
@@ -17,7 +17,7 @@ export default function CalendarioScreen() {
     useCallback(() => {
       const cargarTareas = async () => {
         try {
-          const datos = await AsyncStorage.getItem(STORAGE_KEY);
+          const datos = await AsyncStorage.getItem(CLAVE_ALMACENAMIENTO);
           setTareas(datos ? JSON.parse(datos) : []);
         } catch (error) {
           console.error("Error al cargar tareas:", error);
@@ -60,7 +60,7 @@ export default function CalendarioScreen() {
       <ScrollView contentContainerClassName="p-5">
         <View className="overflow-hidden rounded-2xl border-2 border-ink">
           <Calendar
-            onDayPress={(day) => setFechaSeleccionada(day.dateString)}
+            onDayPress={(dia) => setFechaSeleccionada(dia.dateString)}
             markedDates={fechasMarcadas}
             theme={{
               calendarBackground: '#FFFFFF',
@@ -82,12 +82,12 @@ export default function CalendarioScreen() {
         {tareasDelDia.length === 0 && (
           <Text className="text-neutral-500">No hay tareas para este día.</Text>
         )}
-        {tareasDelDia.map((item) => (
-          <View key={item.key} className="mb-3 rounded-2xl border-2 border-ink bg-white p-3">
-            <Text className="text-base font-work-bold">{item.value}</Text>
-            {item.descripcion ? (
+        {tareasDelDia.map((tarea) => (
+          <View key={tarea.id} className="mb-3 rounded-2xl border-2 border-ink bg-white p-3">
+            <Text className="text-base font-work-bold">{tarea.titulo}</Text>
+            {tarea.descripcion ? (
               <Text className="mt-2 rounded-lg bg-paper p-2 text-sm text-neutral-600">
-                {item.descripcion}
+                {tarea.descripcion}
               </Text>
             ) : null}
           </View>

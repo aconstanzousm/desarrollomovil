@@ -3,10 +3,10 @@ import { Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { sesion } from '../../datos';
 
-export default function Progress() {
+export default function Progreso() {
   const salir = () => {
     sesion.nombre = '';
-    router.replace('/login');
+    router.replace('/ingreso');
   };
 
   return (
@@ -35,10 +35,10 @@ export default function Progress() {
         </View>
 
         <View className="mb-6 flex-row gap-3">
-          {[['PUNTOS', '0'], ['HORAS', '0h'], ['TAREAS', '0']].map(([l, v]) => (
-            <View key={l} className="flex-1 items-center rounded-xl border-2 border-ink bg-mint-soft py-3">
-              <Text className="text-[10px] text-neutral-600">{l}</Text>
-              <Text className="text-xl font-work-black">{v}</Text>
+          {[['PUNTOS', '0'], ['HORAS', '0h'], ['TAREAS', '0']].map(([etiqueta, valor]) => (
+            <View key={etiqueta} className="flex-1 items-center rounded-xl border-2 border-ink bg-mint-soft py-3">
+              <Text className="text-[10px] text-neutral-600">{etiqueta}</Text>
+              <Text className="text-xl font-work-black">{valor}</Text>
             </View>
           ))}
         </View>

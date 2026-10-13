@@ -5,8 +5,8 @@ import '../global.css';
 
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
-  const [loaded] = useFonts({
+export default function LayoutRaiz() {
+  const [cargado] = useFonts({
     'WorkSans-Black': require('../assets/fonts/WorkSans-Black.ttf'),
     'WorkSans-Bold': require('../assets/fonts/WorkSans-Bold.ttf'),
     'WorkSans-Light': require('../assets/fonts/WorkSans-Light.ttf'),
@@ -14,10 +14,10 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (loaded) SplashScreen.hideAsync();
-  }, [loaded]);
+    if (cargado) SplashScreen.hideAsync();
+  }, [cargado]);
 
-  if (!loaded) return null;
+  if (!cargado) return null;
 
   return <Stack screenOptions={{ headerShown: false }} />;
 }

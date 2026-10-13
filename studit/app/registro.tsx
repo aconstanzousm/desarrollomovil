@@ -4,7 +4,7 @@ import { Pressable, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { sesion } from '../datos';
 
-export default function Register() {
+export default function Registro() {
   const [usuario, setUsuario] = useState('');
   const [correo, setCorreo] = useState('');
   const [clave, setClave] = useState('');
@@ -13,7 +13,7 @@ export default function Register() {
   const registrar = () => {
     if (!usuario || !correo || !clave) return setError('Completa todos los campos');
     sesion.nombre = usuario;
-    router.replace('/home');
+    router.replace('/inicio');
   };
 
   return (
@@ -29,7 +29,7 @@ export default function Register() {
       <Pressable className="items-center rounded-2xl border-2 border-ink bg-mint p-3" onPress={registrar}>
         <Text className="text-base font-work-bold">Registrar</Text>
       </Pressable>
-      <Pressable className="mt-6" onPress={() => router.replace('/login')}>
+      <Pressable className="mt-6" onPress={() => router.replace('/ingreso')}>
         <Text className="text-center font-work-medium">¿Ya tienes cuenta? <Text className="font-work-black">Inicia sesión</Text></Text>
       </Pressable>
     </SafeAreaView>

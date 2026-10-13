@@ -3,7 +3,7 @@ import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { sesion } from '../../datos';
 
-export default function Home() {
+export default function Inicio() {
   const [ramos, setRamos] = useState<string[]>([]);
   const [nombre, setNombre] = useState('');
 
